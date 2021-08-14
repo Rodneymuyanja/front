@@ -2,8 +2,8 @@ import React, {Component} from "react";
 import PageWrapper from "./Components/PageWrapper";
 import Audios from "./Components/Pages/Audios";
 import Topics from "./Components/Pages/Topics";
-import Footer from "./Components/Pages/Footer";
 import {BrowserRouter as Router, Route, Link } from "react-router-dom";
+import TopicDetails from "./Components/Pages/TopicDetails";
 
 function App(){
   return (
@@ -11,10 +11,20 @@ function App(){
       <PageWrapper>
         
           <Route 
+            exact = {true}
             path ="/"
             component = {Audios}
           />
         
+          <Route 
+            path = "/topics"
+            component = {Topics}
+          />
+
+          <Route 
+            path = "/topicDetails"
+            component = {TopicDetails}
+          />
         
       </PageWrapper>
     </Router>

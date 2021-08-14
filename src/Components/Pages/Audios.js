@@ -1,9 +1,14 @@
 import React, {Component} from 'react'
+import NavBar from '../commons/navBar';
+import Footer from '../commons/Footer';
 
 class Audios extends Component{
     render(){
         return(
             <div>
+                <NavBar 
+                    page="audios"
+                />
                 <section className="razo-music-charts-area section-padding-80 bg-overlay bg-img jarallax" style={{backgroundImage:"url('assets/img/bg-img/ai.png')"}}>
                     <div className="container">
                         <div className="row">
@@ -13,7 +18,7 @@ class Audios extends Component{
                                     <form action="index.html" method="post">
                                         <div className="row ">
                                             
-                                            <input type="search" name="top-search-bar" className="form-control col-10" placeholder="Search Audios" style={{marginLeft:'40px'}}/>   
+                                            <input type="search" name="top-search-bar" className="form-control col-10" placeholder="Search Audios" />   
 
                                             <div className="dropdown">
                                                 <button className="btn btn-secondary dropdown-toggle" type="button" aria-haspopup="true" id="dropdownButton" data-bs-toggle="dropdown" aria-expanded="false">
@@ -53,7 +58,7 @@ class Audios extends Component{
                                     </div>
                                     <div className="music-price row">
                                         <a href="#" className="btn razo-btn btn-2" style={{marginRight:'10px'}}>Add Tag</a>
-                                        <a href="#" className="btn razo-btn btn-2">Comment</a>
+                                        <a href="#" className="btn razo-btn btn-2" data-toggle="modal" data-target="#searchModal">Comment</a>
                                     </div>
                                 </div>
                             </div>
@@ -67,6 +72,43 @@ class Audios extends Component{
                         </div>
                     </div>
                 </section>
+
+                <div >
+                    <div className="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-hidden="true">
+                        <div className="modal-dialog modal-dialog-centered" role="document">
+                            <div className="modal-content">
+                                <div className="modal-header">
+                                    <h2 style={{color:'black'}}>Comment</h2>
+                                    <button type="button" className="btn close-btn" data-dismiss="modal"><i className="fa fa-times"></i></button>
+                                </div>
+                                <div className="modal-body">
+                                    <div className="col-lg-12 mt-5 mt-lg-0">
+
+                                        <form action="forms/contact.php" method="post" role="form" className="php-email-form">
+                                            <div className="row">
+                                                <div className="col-md-6 form-group">
+                                                <input type="text" name="name" className="form-control col-10" id="name" placeholder="Your Name" required/>
+                                                </div>
+                                                <div className="col-md-6 form-group mt-3 mt-md-3">
+                                                <input type="email" className="form-control" name="email" id="email" placeholder="Your Email" required/>
+                                                </div>
+                                            </div>
+                                        
+                                            <div className="form-group mt-3">
+                                                <textarea className="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+                                            </div>
+                                            <div className="text-center"><button type="submit">Send Message</button></div>
+                                        </form>
+
+                                    </div>
+                                   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <Footer />
             </div>
         )
     }
